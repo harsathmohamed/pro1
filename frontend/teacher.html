@@ -1,0 +1,24 @@
+<h1>Welcome Teacher</h1>
+
+<input id="title" placeholder="Course Title">
+<input id="description" placeholder="Description">
+<button onclick="createCourse()">Create Course</button>
+
+<script>
+    async function createCourse() {
+        const title = document.getElementById("title").value;
+        const description = document.getElementById("description").value;
+
+        const instructorId = localStorage.getItem("userId");
+
+        await fetch(`http://localhost:8080/api/courses/create/${instructorId}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ title, description })
+        });
+
+        alert("Course Created!");
+    }
+</script>

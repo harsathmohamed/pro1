@@ -7,6 +7,9 @@ import com.elearning.repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Service
 public class AuthService {
 
@@ -17,6 +20,7 @@ public class AuthService {
         this.userRepository = userRepository;
     }
 
+    // REGISTER
     public String register(RegisterRequest request) {
 
         if (userRepository.findByEmail(request.getEmail()).isPresent()) {
@@ -34,7 +38,8 @@ public class AuthService {
         return "User Registered Successfully!";
     }
 
-    public String login(LoginRequest request) {
+    // LOGIN
+    public Map<String, Object> login(LoginRequest request) {
 
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new RuntimeException("User not found"));
@@ -43,6 +48,12 @@ public class AuthService {
             throw new RuntimeException("Invalid password");
         }
 
-        return "Login Successful!";
+        Map<String, Object> response = new HashMap<>();
+        response.put("message", "Login Successful!");
+        response.put("userId", user.getId());
+        response.put("email", user.getEmail());
+        response.put("role", user.getRole().name());
+
+        return response;
     }
 }

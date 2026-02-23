@@ -1,0 +1,17 @@
+<h1>Welcome Student</h1>
+<button onclick="loadCourses()">View Courses</button>
+<div id="courses"></div>
+
+<script>
+    async function loadCourses() {
+        const response = await fetch("http://localhost:8080/api/courses");
+        const courses = await response.json();
+
+        let output = "";
+        courses.forEach(course => {
+            output += `<p>${course.title} - ${course.description}</p>`;
+        });
+
+        document.getElementById("courses").innerHTML = output;
+    }
+</script>

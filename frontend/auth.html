@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EduPro - Reinvent Education</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f172a;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 60px;
+      position: fixed;
+      width: 100%;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: #2563eb;
+    }
+
+    .nav-links a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: radial-gradient(circle at top left, #1e3a8a, #0f172a);
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 800;
+      animation: fadeUp 1s ease;
+    }
+
+    .hero p {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #cbd5e1;
+      animation: fadeUp 1.2s ease;
+    }
+
+    .hero button {
+      margin-top: 30px;
+      padding: 14px 30px;
+      border-radius: 10px;
+      border: none;
+      background: linear-gradient(90deg,#2563eb,#1e40af);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      animation: fadeUp 1.4s ease;
+    }
+
+    .hero button:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(37,99,235,0.4);
+    }
+
+    /* FEATURES */
+    .features {
+      padding: 100px 60px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      background: #0f172a;
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,0.05);
+      padding: 40px;
+      border-radius: 20px;
+      transition: 0.4s;
+      backdrop-filter: blur(20px);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+
+    .feature-card h3 {
+      margin-bottom: 15px;
+      color: #2563eb;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* RESPONSIVE */
+    @media(max-width: 900px) {
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="navbar">
+  <div class="logo">EduPro</div>
+  <div class="nav-links">
+    <a href="#">Features</a>
+    <a href="#">Pricing</a>
+    <a href="auth.html">Login</a>
+  </div>
+</div>
+
+<section class="hero">
+  <div>
+    <h1>Reinvent Education for Institutions</h1>
+    <p>Customizable LMS for Schools, Colleges & Training Centers</p>
+    <button onclick="window.location.href='auth.html'">
+      Get Started
+    </button>
+  </div>
+</section>
+
+<section class="features">
+  <div class="feature-card">
+    <h3>Role Based Access</h3>
+    <p>Admin, Teacher & Student dashboards with secure access.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>Course Management</h3>
+    <p>Create, manage and deliver professional courses easily.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>Analytics & Reports</h3>
+    <p>Track student progress with powerful insights.</p>
+  </div>
+</section>
+
+</body>
+</html>
